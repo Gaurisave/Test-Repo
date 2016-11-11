@@ -1,0 +1,18 @@
+# Import Fabric's API module
+from fabric.api import *
+
+# Define the list of IP on which you want to run commands, We have divided Ip into 2 groups DEV and PROD.
+env.roledefs = {
+'DEV':['IP1','IP2','IP3','IP4'],
+'PROD':['IP11','IP12','IP13','IP14']
+}
+
+@roles('DEV')
+#Define commands that will run on all IPs
+def List_check():
+                run (" echo `ls` ")
+
+@roles('PROD')
+#Define commands that will run on all IPs
+def List_check():
+                run (" echo `ls` ")
